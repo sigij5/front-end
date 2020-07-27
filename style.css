@@ -50,12 +50,14 @@ table {
 *{
 	box-sizing: border-box;
 	font-size: 62.5%;
+	
 }
 
 body {
   font-size: 1.4rem;
 	font-family: 'Montserrat', sans-serif;
 	color: white;
+	overflow-x: hidden;
   
 }
 
@@ -74,6 +76,18 @@ h1 {
 	box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.4);
 }
 
+#about-bg{
+	background-color: #222222;
+}
+
+#about-header {
+	width: 100%;
+	height: 12vh;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	background: none;
+}
 
 header {
 	width: 100%;
@@ -82,12 +96,11 @@ header {
 	flex-flow: row nowrap;
 	align-items: center;
 	background-color: rgba(0,0,0,0.35);
-	margin-bottom: 7%;
-
 	
-	
-
 }
+
+
+
 header h2 {
 	font-size: 1.8rem;
 	font-weight: 700;
@@ -113,15 +126,15 @@ nav a {
 }
 
 nav a:hover{
-	color: black;
+	color: #B43339;
 }
 
-main {
+#home-main {
 	width: 95%;
 	height: 60vh;
-	margin: 0 auto;
+	margin: 7% auto;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	flex-flow: column wrap;
 	text-align: center;
 	border-radius: 30px;
@@ -159,10 +172,28 @@ main .buttons a:hover {
 	background-color: #953338;
 }
 
+#about-main {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+}
 
-#about {
-	height: 100vh;
-	background-color: aquamarine;
+#about-main h2 {
+	font-size: 2.1rem;
+	color: white;
+	width: 100%;
+	margin-bottom: 2%;
+}
+
+#about-img{
+	width: 100%;
+	background-image: url("./img/about-main.jpg");
+	height: 65vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 2% 0;
+
 }
 
 @media (max-width: 750px) {
@@ -175,29 +206,6 @@ main .buttons a:hover {
 		width: 100%;
 	}
 }
-
-
-/* @media (max-width: 500px) {
-
-
-
-	header h2 {
-		font-size: 1.3rem;
-	}
-
-	header nav {
-		font-size: 1.2rem;
-	}
-
-	main p {
-		font-size: 1.1rem;
-	}
-
-	main .buttons {
-		width: 100%;
-	}
-
-} */
 
 
 @media (max-width: 500px) {
