@@ -49,26 +49,44 @@ table {
 
 *{
 	box-sizing: border-box;
+	font-size: 62.5%;
 }
 
 body {
   font-size: 1.4rem;
-  font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	color: white;
   
 }
 
+h1 {
+	font-size: 3.8rem;
+	width: 100%;
+	margin: 2% 0;
+}
+
+#main-bg{
+	background-image: url('./img/main-bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+
+
 header {
 	width: 100%;
-	height: 16vh;
+	height: 12vh;
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	background-color: blueviolet;
+	background-color: rgba(0,0,0,0.65);
+	margin-bottom: 5%;
+
 	
 	
 
 }
-header h1 {
+header h2 {
 	font-size: 1.8rem;
 	font-weight: 700;
 	width: 25%;
@@ -76,10 +94,13 @@ header h1 {
 }
 
 header nav {
-	width: 80%;
+	width: 75%;
 	display: flex;
 	justify-content: flex-end;
 	padding-right: 1%;
+	text-align: center;
+	
+	
 
 }
 
@@ -91,4 +112,23 @@ nav a {
 
 nav a:hover{
 	color: black;
+}
+
+main {
+	width: 90%;
+	height: 70vh;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	align-content: flex-start;
+	flex-flow: column wrap;
+	text-align: center;
+	border-radius: 30px;
+	background-color: rgba(0,0,0,0.35);
+}
+
+main p{
+	width: 100%;
+	font-size: 1.1rem
 }
