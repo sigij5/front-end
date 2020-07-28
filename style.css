@@ -58,6 +58,7 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	color: white;
 	overflow-x: hidden;
+
   
 }
 
@@ -69,15 +70,16 @@ h1 {
 }
 
 #main-bg{
-	background-image: url('./img/main-bg.jpg');
+	background: url('./img/main-bg.jpg') no-repeat center;
 	background-size: cover;
-	background-repeat: no-repeat;
 	height: 100vh;
 	box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.4);
+	overflow-y: hidden;
 }
 
 #about-bg{
 	background-color: #222222;
+	overflow-y: hidden;
 }
 
 #about-header {
@@ -188,22 +190,67 @@ main .buttons a:hover {
 
 #about-img{
 	width: 100%;
-	background-image: url("./img/about-main.jpg");
+	background: url("./img/about-main.jpeg") no-repeat center;
 	height: 65vh;
 	background-size: cover;
-	background-repeat: no-repeat;
-	margin: 2% 0;
+	margin: 0 0 2% 0;
 
 }
 
-@media (max-width: 750px) {
+.product-info {
+	width: 47%;
+	margin: 5% 3% 1% 0%;
+	text-align: center;
+}
+
+.product-info p {
+	text-align: left;
+}
+
+footer {
+	width: 80%;
+	height: 9vh;
+	margin: 0.5% auto;
+	font-size: 1.2rem;
+	text-align: center;
+	display: flex;
+	align-items: flex-end;
+
+}
+
+footer nav {
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+
+	justify-content: center;
+	
+}
+
+footer nav a {
+	margin-right: 5%;
+}
+
+@media (max-width: 800px) {
 
 	h1 {
 		font-size: 2.5rem
 	}
 
+	#about-img {
+		background: url("./img/about-main-800.jpeg") no-repeat center;
+		background-size: cover;
+		height: 30vh;
+	}
+
 	main .buttons {
 		width: 100%;
+	}
+
+	.product-info {
+		width: 100%;
+		margin: 2% 1% 1% 0;
+		text-align: center;
 	}
 }
 
@@ -238,4 +285,20 @@ header nav {
 	justify-content: center;
 }
 
+#about-header {
+	display: flex;
+	flex-flow: column nowrap;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+}
+
+
+.product-info {
+	width: 100%;
+	margin: 12% 1% 1% 0;
+	text-align: center;
+}
 }
