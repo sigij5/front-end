@@ -4,6 +4,7 @@ import { Route, NavLink, Switch } from 'react-router-dom'
 
 import Login from './components/Login'
 import Signup from './components/Signup'
+import Profile from './components/Profile'
 import './App.css';
 import PrivateRoute from './components/PrivateRoute';
 
@@ -18,7 +19,7 @@ function App() {
       <Switch>
         <Route path='/login' component={Login} />
         <Route path='/signup' component={Signup} />
-        <PrivateRoute path='/profile' />
+        <PrivateRoute path='/profile/:id' component={Profile}/>
       </Switch>
     </div>
   );
