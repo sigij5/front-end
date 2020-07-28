@@ -18,8 +18,10 @@ export const addUser = newUser => dispatch => {
     axios
         .post(`${baseURL}/api/users/register`, newUser)
         .then(res => 
-            dispatch({ type: REGISTER_SUCCESS, payload: res.data }))
+            // console.log(res))
+            dispatch({ type: REGISTER_SUCCESS, payload: res.data }),
             history.push('/login')
+            )
         .catch(err => dispatch({ type: REGISTER_FAILURE, payload: err}))
 }
 
@@ -33,20 +35,20 @@ export const login = credentials => dispatch => {
         .post(`${baseURL}/api/user/login`, {username: `${credentials.username}`,
          password: `${credentials.password}`})
          .then(res => {
-             localStorage.setItem('token', res.token)
-             dispatch({ type: LOGIN_SUCCESS, payload: credentials})
-
+            //  localStorage.setItem('token', res.token)
+            //  dispatch({ type: LOGIN_SUCCESS, payload: credentials})
+            console.log(res)
          })
          .catch(err => {
             dispatch({ type: LOGIN_FAILURE, payload: err})
          })
-         .finally(
-             axiosWithAuth()
-                .get(`${baseURL}/api/users`)
-                .then(res => {
-                    let user = res.data.filter(user => user.username === credentials.username)
-                    history.push(`/profile/${user.id}`)
-                })
-                .catch(err => console.log(err))
-         )
+        //  .finally(
+        //      axiosWithAuth()
+        //         .get(`${baseURL}/api/users`)
+        //         .then(res => {
+        //             let user = res.data.filter(user => user.username === credentials.username)
+        //             history.push(`/profile/${user.id}`)
+        //         })
+        //         .catch(err => console.log(err))
+        //  )
 }
