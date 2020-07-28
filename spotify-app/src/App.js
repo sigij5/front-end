@@ -13,14 +13,18 @@ function App() {
     <div className="App">
       <header className='App-header'>
         <h1>Spotify App</h1>
-        <NavLink className='link' to='login'>Login</NavLink>
-        <NavLink className='link' to='signup'>Sign Up</NavLink>
+        <nav>
+          <NavLink className='link' to='login'>Login</NavLink>
+          <NavLink className='link' to='signup'>Sign Up</NavLink>
+        </nav>
       </header>
-      <Switch>
-        <Route path='/login' component={Login} />
-        <Route path='/signup' component={Signup} />
-        <PrivateRoute path='/profile/:id' component={Profile}/>
-      </Switch>
+      <div className='body'>
+        <Switch>
+          <Route path='/login' component={Login} />
+          <Route path='/signup' component={Signup} />
+          <PrivateRoute path='/profile/:id' component={Profile}/>
+        </Switch>
+      </div>
     </div>
   );
 }

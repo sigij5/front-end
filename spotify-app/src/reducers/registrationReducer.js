@@ -3,12 +3,12 @@ import axios from 'axios'
 
 
 export const initialUserRegistration = {
-    credentials: {
-    first_name: '',
-    last_name: '',
-    username: '',
-    password: ''
-    },
+    // credentials: {
+    // first_name: '',
+    // last_name: '',
+    // username: '',
+    // password: ''
+    // },
     registering: false,
     error: ''
 }
@@ -22,8 +22,6 @@ export function registration(state = initialUserRegistration, action) {
                  error: '',
                  };
       case REGISTER_SUCCESS:
-        const newUser = action.payload.credentials
-
         return { ...state, 
                 registering: false,
                 error: '',
