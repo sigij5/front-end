@@ -208,13 +208,14 @@ main .buttons a:hover {
 }
 
 footer {
-	width: 80%;
+	width: 100%;
 	height: 9vh;
 	margin: 0.5% auto;
 	font-size: 1.2rem;
 	text-align: center;
 	display: flex;
-	align-items: flex-end;
+	align-items: center;
+	background-color: #3C3C3C;
 
 }
 
