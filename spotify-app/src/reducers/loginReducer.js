@@ -11,12 +11,12 @@ export function login(state = initialState, action) {
       case LOGIN_REQUEST:
         return {
                  loggingIn: true,
-                 user: action.payload.username
+                 user: action.payload
                  };
       case LOGIN_SUCCESS:
         return {  
                 loggedIn: true,
-                user: action.payload.username
+                user: action.payload
                 };
       case LOGIN_FAILURE:
         return { 

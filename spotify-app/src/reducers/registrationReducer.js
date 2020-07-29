@@ -3,12 +3,12 @@ import axios from 'axios'
 
 
 export const initialUserRegistration = {
-    // credentials: {
-    // first_name: '',
-    // last_name: '',
-    // username: '',
-    // password: ''
-    // },
+    credentials: {
+    first_name: '',
+    last_name: '',
+    username: '',
+    password: ''
+    },
     registering: false,
     error: ''
 }
