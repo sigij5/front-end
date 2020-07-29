@@ -174,7 +174,7 @@ main .buttons a:hover {
 	margin: 0 auto;
 	display: flex;
 	flex-flow: row wrap;
-	height: 
+
 }
 
 #about-main h2 {
@@ -257,8 +257,13 @@ footer span {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	width: 33%;
-	margin: 3% 0%;
+	width: 30%;
+	margin: 3% 1.6%;
+	padding: 2%;
+	background-color: #e3e1e0;
+	border-radius: 45px;
+	color: black;
+	box-shadow: 5px 10px 5px rgba(0,0,0,0.35);
 
 }
 
@@ -273,8 +278,20 @@ footer span {
 }
 
 .team-info a {
-	color: white;
+	color: black;
 }
+
+@media (max-width: 990px) {
+	.team-info {
+
+
+		width: 44%;
+		margin: 3% 3%;
+	
+	}
+
+}
+
 
 @media (max-width: 800px) {
 
@@ -336,13 +353,11 @@ footer span {
 	}
 
 	.team-info {
-
-		flex-flow: column wrap;
-
 		width: 100%;
 		margin: 3% 3%;
-	
 	}
+
+
 }
 
 
