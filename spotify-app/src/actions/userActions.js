@@ -2,6 +2,7 @@ import React from 'react'
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import axios from 'axios'
 import { history } from '../utils/history'
+import { jwt_decode } from 'jwt-decode'
 
 
 
@@ -11,6 +12,8 @@ export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 
+// const token = localStorage.getItem('token')
+// const decoded = jwt_decode(token);
 
 export const addUser = newUser => dispatch => {
     // console.log(newUser)
@@ -36,13 +39,17 @@ export const login = user => dispatch => {
          password: `${user.password}`})
          .then(res => {
              localStorage.setItem('token', res.data.token)
-             dispatch({ type: LOGIN_SUCCESS, payload: user})
+             localStorage.setItem('user', res.data.id)
+             dispatch({ type: LOGIN_SUCCESS, payload: res.data.id})
              console.log(res)
              history.push('/profile')
          })
          .catch(err => {
             dispatch({ type: LOGIN_FAILURE, payload: err})
          })
+        //  .finally(
+        //      console.log(decoded)
+        //  )
         //  .finally(
         //      axiosWithAuth()
         //         .get(`${baseURL}/api/users`)
@@ -56,4 +63,5 @@ export const login = user => dispatch => {
 
 export const logout = () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('user')
 }

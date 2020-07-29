@@ -88,24 +88,24 @@ return (
       <form onSubmit={onSubmit}>
         <p className="h4 text-center mb-4">Sign in</p>
         <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
-          Your Username
+         Username
         </label>
         <input 
         type="text" 
         id="defaultFormLoginEmailEx" 
         className="form-control" 
-        value={user.username}
+        name='username'
         onChange={handleChange}
         />
         <br />
         <label htmlFor="defaultFormLoginPasswordEx" className="grey-text">
-          Your password
+          Password
         </label>
         <input 
         type="password" 
         id="defaultFormLoginPasswordEx" 
         className="form-control"
-        value={user.password}
+        name='password'
         onChange={handleChange} 
         />
         <div className="text-center mt-4">
