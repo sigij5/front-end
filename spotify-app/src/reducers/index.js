@@ -4,7 +4,7 @@ import { registration } from './registrationReducer'
 import { login, userData } from './loginReducer'
 
 const rootReducer = combineReducers({
-  login,
+  login: login,
   registration,
   userData  
 });

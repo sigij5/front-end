@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import axios from 'axios'
 import { history } from '../utils/history'
@@ -51,6 +51,7 @@ export const login = user => dispatch => {
 export const GET_REQUEST = 'GET_REQUEST';
 export const GET_SUCCESS = 'GET_SUCCESS';
 export const GET_FAILURE = 'GET_FAILURE';
+export const GET_SONGS = 'GET_SONGS';
 
 export const getUserData = id => dispatch => {
     dispatch({ type: GET_REQUEST })
@@ -64,11 +65,45 @@ export const getUserData = id => dispatch => {
         .catch(err => {
             dispatch({ type: GET_FAILURE })
         })
+    axiosWithAuth()
+        .get(`${baseURL}/api/favorites/${id}`)
+        .then(res => {
+            console.log(res)
+            dispatch({ type: GET_SONGS, payload: res.data })
+        })
+        .catch(err => console.log(err))
 }
 
 
+export const addSong = (id, song) => dispatch => {
+    // dispatch({ type: POST_REQUEST })
+    axiosWithAuth()
+        .post(`${baseURL}/api/favorites/${id}/add/${JSON.stringify(song)}`)
+        .then(res => {
+            console.log(res)
+            // dispatch({ POST_SUCCESS, payload: res.data.favorite_songs })
+        })
+        .catch(err => console.log(err))
+        .finally(dispatch(getUserData(id)))
+}
 
-export const logout = () => {
+export const removeSong = (id, song) => dispatch => {
+    axiosWithAuth()
+        .delete(`${baseURL}/api/favorites/${id}/remove/${JSON.stringify(song)}`)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+        .finally(dispatch(getUserData(id)))
+}
+
+export const editUser = (id, newUser) => dispatch => {
+    axiosWithAuth
+        .put(`${baseURL}/api/favorites/${id}/`)
+}
+
+export const LOGOUT = 'LOGOUT'
+
+export const logout = () => dispatch => {
+    dispatch({ type: LOGOUT })
     localStorage.removeItem('token')
     localStorage.removeItem('user')
 }
