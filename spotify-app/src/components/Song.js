@@ -16,10 +16,10 @@ const Song = props => {
         dispatch(removeSong(user.id, song))
     }
 
-    const editSong = song => {
-        setEditing(true);
-        setSongToEdit(song);
-    }
+    // const editSong = song => {
+    //     setEditing(true);
+    //     setSongToEdit(song);
+    // }
 
 
     return (

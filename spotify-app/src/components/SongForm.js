@@ -4,18 +4,22 @@ import { addSong, getUserData } from '../actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 
+
+const initialInputs = {
+    title: '',
+    artist: ''
+}
+
 const AddSong = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.userData)
-    const [song, setSong] = useState({
-        title: '',
-        artist: ''
-    })
+    const [song, setSong] = useState(initialInputs)
 
     const onSubmit = e => {
         e.preventDefault();
         console.log(user.id, song)
         dispatch(addSong(user.id, song))
+        // setSong(initialInputs);
     }
 
     const handleChange = e => {
@@ -40,6 +44,7 @@ return (
         id="defaultFormLoginEmailEx" 
         className="form-control" 
         name='title'
+        value={song.title}
         onChange={handleChange}
         />
         <br />
@@ -51,6 +56,7 @@ return (
         id="defaultFormLoginPasswordEx" 
         className="form-control"
         name='artist'
+        value={song.artist}
         onChange={handleChange} 
         />
         <div className="text-center mt-4">
