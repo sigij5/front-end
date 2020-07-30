@@ -41,25 +41,32 @@ export const login = user => dispatch => {
              localStorage.setItem('token', res.data.token)
              localStorage.setItem('user', res.data.id)
              dispatch({ type: LOGIN_SUCCESS, payload: res.data.id})
-             console.log(res)
              history.push('/profile')
          })
          .catch(err => {
             dispatch({ type: LOGIN_FAILURE, payload: err})
          })
-        //  .finally(
-        //      console.log(decoded)
-        //  )
-        //  .finally(
-        //      axiosWithAuth()
-        //         .get(`${baseURL}/api/users`)
-        //         .then(res => {
-        //             let user = res.data.filter(user => user.username === credentials.username)
-        //             history.push(`/profile/${user.id}`)
-        //         })
-        //         .catch(err => console.log(err))
-        //  )
 }
+
+export const GET_REQUEST = 'GET_REQUEST';
+export const GET_SUCCESS = 'GET_SUCCESS';
+export const GET_FAILURE = 'GET_FAILURE';
+
+export const getUserData = id => dispatch => {
+    dispatch({ type: GET_REQUEST })
+    axiosWithAuth()
+        .get(`${baseURL}/api/users/${id}`)
+        .then(res => {
+            console.log(res)
+            localStorage.setItem('user', res.data[0].username)
+            dispatch({ type: GET_SUCCESS, payload: res.data[0] })
+        })
+        .catch(err => {
+            dispatch({ type: GET_FAILURE })
+        })
+}
+
+
 
 export const logout = () => {
     localStorage.removeItem('token')
