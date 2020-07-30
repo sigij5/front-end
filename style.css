@@ -1,0 +1,410 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*{
+	box-sizing: border-box;
+	font-size: 62.5%;
+	
+}
+
+body {
+  font-size: 1.4rem;
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	overflow-x: hidden;
+
+  
+}
+
+h1 {
+	font-size: 3.8rem;
+	width: 100%;
+	margin: 2% 0;
+}
+
+#main-bg{
+	background: url('./img/main-bg.jpg') no-repeat center;
+	background-size: cover;
+	height: 100vh;
+	box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.4);
+	overflow-y: hidden;
+}
+
+#about-bg{
+	background-color: #222222;
+	overflow-y: hidden;
+}
+
+#about-header {
+	background: none;
+}
+
+header {
+	width: 100%;
+	height: 12vh;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	background-color: rgba(0,0,0,0.35);
+	
+}
+
+
+
+header h2 {
+	font-size: 1.8rem;
+	font-weight: 700;
+	width: 30%;
+	padding-left: 1%;
+}
+
+header nav {
+	width: 70%;
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 1%;
+	text-align: center;
+	
+	
+
+}
+
+nav a {
+	width: 100px;
+	text-decoration: none;
+	color: white;
+}
+
+nav a:hover{
+	color: #B43339;
+}
+
+#home-main {
+	width: 95%;
+	height: 60vh;
+	margin: 7% auto;
+	display: flex;
+	justify-content: center;
+	flex-flow: row wrap;
+	text-align: center;
+	border-radius: 30px;
+	background-color: rgba(0,0,0,0.35);
+}
+
+main p{
+	width: 100%;
+	font-size: 1.1rem;
+	margin: 0 0 5% 0;
+}
+
+main .buttons{
+	display: flex;
+	flex-flow: row nowrap;
+	width: 40%;
+	justify-content: center;
+
+}
+
+main .buttons a {
+	padding: 15px;
+	height: 55px;
+	width: 125px;
+	margin-right: 5%;
+	background-color:#B43339;
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 1.4rem;
+	
+
+}
+
+main .buttons a:hover {
+	background-color: #953338;
+}
+
+#about-main {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+
+}
+
+#about-main h2 {
+	font-size: 2.1rem;
+	color: white;
+	width: 100%;
+	margin-bottom: 2%;
+	text-align: center;
+}
+
+#about-img{
+	width: 100%;
+	background: url("./img/about-main.jpeg") no-repeat center;
+	height: 75vh;
+	background-size: cover;
+	margin: 0 0 2% 0;
+
+}
+
+.product-info {
+	width: 47%;
+	margin: 5% 3% 1% 0%;
+	text-align: center;
+}
+
+.product-info p {
+	text-align: left;
+}
+
+footer {
+	width: 100%;
+	height: 9vh;	
+	font-size: 1.2rem;
+	text-align: center;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	background-color: #3C3C3C;
+	justify-content: center;
+
+}
+
+footer nav {
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	
+}
+
+footer nav a {
+	padding: 0 10%;
+	width: auto;
+}
+
+#contact-footer {
+	background-color: #222222;
+}
+
+#contact-main {
+
+	width: 100%;
+	background-color: #953338;
+	padding: 2% 0;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+#contact-main h1 {
+	width: 100%;
+	text-align: center;
+	margin: 3% 0;
+}
+
+.team-info {
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 30%;
+	margin: 3% 1.6%;
+	padding: 2%;
+	background-color: #e3e1e0;
+	border-radius: 45px;
+	color: black;
+	box-shadow: 5px 10px 5px rgba(0,0,0,0.35);
+
+}
+
+.team-info h2 {
+	font-size: 2.2rem;
+	margin: 2% 0;
+}
+
+.team-info img {
+	height: 250px;
+	border-radius: 125px;
+	box-shadow: 3px 3px 3px 2px #888888;
+}
+
+.team-info a {
+	color: black;
+}
+
+#more-info {
+	width: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	background-color: #953338;
+	color: white;
+	justify-content: center;
+	align-items: center;
+}
+
+#more-info h2 {
+	margin: 2% 0;
+	font-size: 2.1rem;
+}
+
+.additional {
+	width: 50%;
+	margin: 3% 0;
+	text-align: center;
+}
+
+.additional h3 {
+
+	font-size: 1.6rem;
+	margin: 2% 0;
+	text-align: center;
+
+}
+
+.additional p{
+	font-size: 1.1rem;
+}
+@media (max-width: 990px) {
+	.team-info {
+
+
+		width: 44%;
+		margin: 3% 3%;
+	
+	}
+
+}
+
+
+@media (max-width: 800px) {
+
+	h1 {	
+		font-size: 2.5rem
+	}
+
+	header {
+		display: flex;
+		flex-flow: column nowrap;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+	
+	header h2 {
+		width: 100%;
+		padding: 0;
+		font-size: 1.9rem;
+		margin-bottom: 5%;
+	}
+	
+	header nav {
+		width: 100%;
+		justify-content: center;
+	}
+	
+	#about-header {
+		display: flex;
+		flex-flow: column nowrap;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	
+	}
+
+	#about-img {
+		background: url("./img/about-main-800.jpeg") no-repeat center;
+		background-size: cover;
+		height: 30vh;
+	}
+
+	main .buttons {
+		width: 100%;
+	}
+
+	.product-info {
+		width: 100%;
+		margin: 2% 1% 1% 0;
+		text-align: center;
+	}
+
+	.product-info {
+		width: 100%;
+		margin: 12% 1% 1% 0;
+		text-align: center;
+	}
+
+	.team-info {
+		width: 100%;
+		margin: 3% 3%;
+	}
+
+	.additional h3 {
+
+		margin: 5% 0;
+
+	
+	}
+
+}
+
+
+@media (max-width: 500px) {
+
+	h1 {
+		font-size: 2.3rem;
+	}
+	main p {
+		font-size: 1rem;
+	}
+
+}
