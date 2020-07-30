@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, GET_REQUEST, GET_SUCCESS, GET_FAILURE } from '../actions/userActions'
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, GET_REQUEST, GET_SUCCESS, GET_FAILURE, GET_SONGS } from '../actions/userActions'
 
 
 // const id = 
@@ -18,7 +18,7 @@ export function login(state = user, action) {
     switch (action.type) {
       case LOGIN_REQUEST:
         return {
-                 loggingIn: true,
+                 loggedIn: false,
                 //  id: action.payload
                  };
       case LOGIN_SUCCESS:
@@ -28,8 +28,13 @@ export function login(state = user, action) {
                 };
       case LOGIN_FAILURE:
         return { 
-                loggingIn: false
+                loggedIn: false
                 };
+      case LOGOUT:
+          return {
+              ...state,
+              loggedIn: action.payload
+          }
       default:
         return state
     }
@@ -43,8 +48,18 @@ export function login(state = user, action) {
             };
         case GET_SUCCESS:
             return {
-                state: action.payload
+                ...state,
+                id: action.payload.id,
+                username: action.payload.username,
+                first_name: action.payload.first_name,
+                last_name: action.payload.last_name,
+                loading: false
             };
+        case GET_SONGS:
+            return {
+                ...state,
+                favorites: action.payload
+            }
         case GET_FAILURE:
             return {}
 
