@@ -9,6 +9,8 @@ const user = {
     first_name: '',
     last_name: '',
     favorites: [],
+    password: '',
+    loading: false,
 };
 // const initialState = user ? { loggedIn: true, user } : {}
 
@@ -18,6 +20,7 @@ export function login(state = user, action) {
     switch (action.type) {
       case LOGIN_REQUEST:
         return {
+                ...state,
                  loggedIn: false,
                 //  id: action.payload
                  };
@@ -27,14 +30,14 @@ export function login(state = user, action) {
                 id: action.payload
                 };
       case LOGIN_FAILURE:
-        return { 
+        return { ...state,
                 loggedIn: false
                 };
       case LOGOUT:
           return {
               ...state,
               loggedIn: action.payload
-          }
+          };
       default:
         return state
     }
@@ -43,7 +46,7 @@ export function login(state = user, action) {
   export function userData(state = user, action) {
     switch(action.type) {
         case GET_REQUEST:
-            return {
+            return {...state,
                   loading: true,
             };
         case GET_SUCCESS:
@@ -53,6 +56,7 @@ export function login(state = user, action) {
                 username: action.payload.username,
                 first_name: action.payload.first_name,
                 last_name: action.payload.last_name,
+                password: localStorage.getItem('password'),
                 loading: false
             };
         case GET_SONGS:

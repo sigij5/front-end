@@ -33,13 +33,15 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
 export const login = user => dispatch => {
-    dispatch({ type: LOGIN_REQUEST, payload: user});
+    dispatch({ type: LOGIN_REQUEST });
     axios
         .post(`${baseURL}/api/users/login`, {username: `${user.username}`,
          password: `${user.password}`})
          .then(res => {
+             console.log('logging in')
              localStorage.setItem('token', res.data.token)
              localStorage.setItem('user', res.data.id)
+             localStorage.setItem('password', user.password)
              dispatch({ type: LOGIN_SUCCESS, payload: res.data.id})
              history.push('/profile')
          })
@@ -81,29 +83,33 @@ export const addSong = (id, song) => dispatch => {
         .post(`${baseURL}/api/favorites/${id}/add/${JSON.stringify(song)}`)
         .then(res => {
             console.log(res)
-            // dispatch({ POST_SUCCESS, payload: res.data.favorite_songs })
+            dispatch(getUserData(id))
         })
         .catch(err => console.log(err))
-        .finally(dispatch(getUserData(id)))
+        // .finally(dispatch(getUserData(id)))
 }
 
 export const removeSong = (id, song) => dispatch => {
     axiosWithAuth()
         .delete(`${baseURL}/api/favorites/${id}/remove/${JSON.stringify(song)}`)
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res)
+            dispatch(getUserData(id))
+        })
         .catch(err => console.log(err))
-        .finally(dispatch(getUserData(id)))
+        // .finally(dispatch(getUserData(id)))
 }
 
-export const editUser = (id, newUser) => dispatch => {
-    axiosWithAuth
-        .put(`${baseURL}/api/favorites/${id}/`)
+export const saveEdit = (id, newUser) => dispatch => {
+    axiosWithAuth()
+        .put(`${baseURL}/api/users/${id}/`, newUser)
+        .then(res => console.log(res))
 }
 
 export const LOGOUT = 'LOGOUT'
 
 export const logout = () => dispatch => {
-    dispatch({ type: LOGOUT })
     localStorage.removeItem('token')
     localStorage.removeItem('user')
+    dispatch({ type: LOGOUT })
 }

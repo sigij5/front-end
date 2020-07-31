@@ -23,8 +23,8 @@ function App() {
         <nav>
           {/* <NavLink className='link' to='login'>Login</NavLink>
           <NavLink className='link' to='signup'>Sign Up</NavLink> */}
-          { loggedIn && ( <NavLink className='link' to='/profile/info'>Profile</NavLink>)}  
-          { loggedIn && ( <NavLink className='link' to='/login' onClick={dispatch(logout())}>Logout</NavLink>)}  
+          { loggedIn && ( <NavLink className='link' to='/info'>Profile</NavLink>)}  
+          { loggedIn && ( <NavLink className='link' to='/login' onClick={() => dispatch(logout())}>Logout</NavLink>)}  
           { !loggedIn && (<NavLink className='link' to='login'>Login</NavLink>)}
           { !loggedIn && (<NavLink className='link' to='signup'>Sign Up</NavLink>)}
           
@@ -35,7 +35,7 @@ function App() {
           <Route path='/login' component={Login} />
           <Route path='/signup' component={Signup} />
           <PrivateRoute path='/profile' component={Profile}/>
-          <PrivateRoute path='/profile/info' component={ProfileInfo} />
+          <PrivateRoute path='/info' component={ProfileInfo} />
         </Switch>
       </div>
     </div>
