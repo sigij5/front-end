@@ -112,3 +112,10 @@ li{
 .username{
   text-transform: uppercase;
 }
+
+.title{
+  color: aqua;
+  font-size: 2.5rem;
+  margin-bottom: 2%;
+
+}
