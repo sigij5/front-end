@@ -31,7 +31,7 @@ const Profile = props => {
 
     return(
         <div className='profile-page'>
-            <h1>Welcome {userInfo}</h1>
+            <h1>Welcome <span className='username'>{userInfo}</span></h1>
                 <br />
                 <h3>My Favorite Songs:</h3>
                 <p>{ data.loading ? 'Loading Songs' : ''}</p>
