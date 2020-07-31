@@ -100,10 +100,18 @@ export const removeSong = (id, song) => dispatch => {
         // .finally(dispatch(getUserData(id)))
 }
 
+// export const saveEdit = (id, newUser) => dispatch => {
+//     axiosWithAuth()
+//         .put(`${baseURL}/api/users/${id}/`, newUser)
+//         .then(res => console.log(res))
+// }
+
 export const saveEdit = (id, newUser) => dispatch => {
-    axiosWithAuth()
-        .put(`${baseURL}/api/users/${id}/`, newUser)
-        .then(res => console.log(res))
+    axios
+        .put(`https://reqres.in/api/users/${id}/`, newUser)
+        .then(res => {
+            dispatch({ type: GET_SUCCESS, payload: res.data})
+        })
 }
 
 export const LOGOUT = 'LOGOUT'
