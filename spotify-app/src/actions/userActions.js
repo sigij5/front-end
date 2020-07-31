@@ -41,6 +41,7 @@ export const login = user => dispatch => {
              console.log('logging in')
              localStorage.setItem('token', res.data.token)
              localStorage.setItem('user', res.data.id)
+             localStorage.setItem('password', user.password)
              dispatch({ type: LOGIN_SUCCESS, payload: res.data.id})
              history.push('/profile')
          })
@@ -99,10 +100,11 @@ export const removeSong = (id, song) => dispatch => {
         // .finally(dispatch(getUserData(id)))
 }
 
-// export const editUser = (id, newUser) => dispatch => {
-//     axiosWithAuth
-//         .put(`${baseURL}/api/favorites/${id}/`)
-// }
+export const saveEdit = (id, newUser) => dispatch => {
+    axiosWithAuth()
+        .put(`${baseURL}/api/users/${id}/`, newUser)
+        .then(res => console.log(res))
+}
 
 export const LOGOUT = 'LOGOUT'
 

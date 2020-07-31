@@ -32,12 +32,11 @@ const Profile = props => {
     return(
         <div className='profile-page'>
             <h1>Welcome {userInfo}</h1>
-            <nav>
                 <br />
                 <h3>My Favorite Songs:</h3>
                 <p>{ data.loading ? 'Loading Songs' : ''}</p>
                 {songs && songs.length > 0 ? (
-                <ol>
+                <ol className='favorites'>
                 {songs.map(song => (
                     console.log(JSON.parse(song.favorite_songs)),
                     <Song song={JSON.parse(song.favorite_songs)} />
@@ -49,8 +48,6 @@ const Profile = props => {
 
 
                 <AddSong />
-
-            </nav>
 
 
 
