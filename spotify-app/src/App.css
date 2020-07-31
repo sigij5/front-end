@@ -108,3 +108,7 @@ li{
   justify-content: flex-end;
   padding-left: 3%;
 }
+
+.username{
+  text-transform: uppercase;
+}
