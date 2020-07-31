@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom'
+import { Route, NavLink, Switch, Link } from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 
 
@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <header className='App-header'>
-        <h1>Spotify App</h1>
+        <a className='title' href='https://loving-poincare-a6249b.netlify.app/'>Spotify App</a>
         <nav>
           {/* <NavLink className='link' to='login'>Login</NavLink>
           <NavLink className='link' to='signup'>Sign Up</NavLink> */}
